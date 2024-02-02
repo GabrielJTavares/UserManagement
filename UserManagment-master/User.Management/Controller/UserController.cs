@@ -52,7 +52,7 @@ namespace UserManagement.Controller
         }
 
         [FunctionName("GetById")]
-        public async Task<IActionResult> Get([HttpTrigger(AuthorizationLevel.Function, "get", Route = "User")] HttpRequest req, string Id)
+        public async Task<IActionResult> Get([HttpTrigger(AuthorizationLevel.Function, "get", Route = "User/{Id}")] HttpRequest req, string Id)
         {
             if (!Guid.TryParse(Id, out Guid IdGuid))
                 return AddStatusCode(new BaseResponse(HttpStatusCode.BadRequest));

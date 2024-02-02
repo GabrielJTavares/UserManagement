@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UserManagement.BuilderExtensions;
 
 [assembly: FunctionsStartup(typeof(UserManagement.Startup))]
 namespace UserManagement
@@ -12,7 +13,9 @@ namespace UserManagement
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            throw new NotImplementedException();
+            builder.ConfigureDependencyInjection();
+            builder.ConfigureMediatr();
+            builder.ConfigureAutoMapeer();
         }
     }
 }
